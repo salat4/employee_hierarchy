@@ -1,0 +1,9 @@
+<ul>
+    {% for subordinate in subordinates %}
+        <li>{{ subordinate.name }} - {{ subordinate.position }}
+            {% if subordinate.subordinates.exists %}
+                {% include 'employees/subordinates.html' with subordinates=subordinate.subordinates.all %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
